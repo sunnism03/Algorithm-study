@@ -1,0 +1,23 @@
+import sys
+input = sys.stdin.readline
+
+info = []
+
+
+N = int(input())
+score = [0 for i in range(N)]
+for i in range(N):
+    info.append(list(map(int, input().split())))
+
+for i in range(N-1):
+    for j in range(i+1, N):
+        if info[i][0] <  info[j][0] and info[i][1] < info[j][1]:
+            score[i] += 1
+        elif info[i][0] > info[j][0] and info[i][1] > info[j][1]:
+            score[j] += 1
+
+for i in range(N):
+    score[i] += 1
+
+for i in range(N):
+    print(score[i])
